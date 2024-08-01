@@ -1,0 +1,83 @@
+[
+    {
+      "id": 1,
+      "name": "Smartphone",
+      "price": 299.99,
+      "description": "A high-quality smartphone with a sleek design and powerful features.",
+      "rating": 5,
+      "productImg":"https://cdn.thewirecutter.com/wp-content/media/2024/07/laptopstopicpage-2048px-3685-2x1-1.jpg?width=2048&quality=75&crop=2:1&auto=webp"
+    },
+    {
+      "id": 2,
+      "name": "Laptop",
+      "price": 799.99,
+      "description": "A lightweight laptop with a powerful processor and long-lasting battery.",
+      "rating": 4,
+      "productImg":""
+    },
+    {
+      "id": 3,
+      "name": "Wireless Headphones",
+      "price": 199.99,
+      "description": "Noise-cancelling wireless headphones with superior sound quality.",
+      "rating": 4,
+       "productImg":""
+    },
+    {
+      "id": 4,
+      "name": "Smart Watch",
+      "price": 149.99,
+      "description": "A stylish smart watch with fitness tracking and notifications.",
+      "rating": 3,
+       "productImg":""
+    },
+    {
+      "id": 5,
+      "name": "Tablet",
+      "price": 249.99,
+      "description": "A versatile tablet with a high-resolution display and ample storage.",
+      "rating": 4,
+       "productImg":""
+    },
+    {
+      "id": 6,
+      "name": "Bluetooth Speaker",
+      "price": 89.99,
+      "description": "Portable Bluetooth speaker with excellent sound quality and long battery life.",
+      "rating": 4,
+       "productImg":""
+    },
+    {
+      "id": 7,
+      "name": "4K Monitor",
+      "price": 399.99,
+      "description": "High-resolution 4K monitor with vivid colors and high contrast.",
+      "rating": 5,
+       "productImg":""
+    },
+    {
+      "id": 8,
+      "name": "Gaming Mouse",
+      "price": 59.99,
+      "description": "Ergonomic gaming mouse with customizable buttons and RGB lighting.",
+      "rating": 4,
+       "productImg":""
+    },
+    {
+      "id": 9,
+      "name": "External Hard Drive",
+      "price": 129.99,
+      "description": "High-capacity external hard drive for storing and backing up important files.",
+      "rating": 4,
+       "productImg":""
+    },
+    {
+      "id": 10,
+      "name": "Digital Camera",
+      "price": 499.99,
+      "description": "Compact digital camera with high resolution and various shooting modes.",
+      "rating": 5,
+       "productImg":""
+    }
+  ]
+  
