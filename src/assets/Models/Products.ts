@@ -6,3 +6,12 @@ export interface ProductModel {
     rating?: number;
     productImg?:string
 }
+
+export class CartItemsModel {
+    cartId?:number;
+    ProductId?:number; 
+    PrductName?:string;
+    ProductPrice?:number;
+    Quantity?:number;
+    ProductImg?:string;
+}

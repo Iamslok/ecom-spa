@@ -5,16 +5,8 @@
     <div class="row">
         @for(product of productDetails; track product){
             @if(product.rating == 5){
-                <div class="col-3 mb-2">
-                    <div class="card">
-                        <img src="{{product.productImg}}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">{{product.name}}</h5>
-                            <p class="card-text">{{product.price}}</p>
-                            <p class="card-text">{{product.description}}</p>
-                            <a class="btn btn-primary">Buy Now</a>
-                        </div>
-                    </div>
+                <div class="col-3 mb-2" [routerLink]="['/product-detail',product.id]">
+                    <app-product-card [product]="product"></app-product-card>
                 </div>
             }
         }

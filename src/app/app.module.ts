@@ -7,17 +7,25 @@ import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { provideHttpClient } from '@angular/common/http';
 import { AllproductsComponent } from './allproducts/allproducts.component';
+import { SharedModule } from './shared/shared.module';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { GalleriaModule } from 'primeng/galleria';
+import { CartItemsComponent } from './cart-items/cart-items.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavBarComponent,
-    AllproductsComponent
+    AllproductsComponent,
+    ProductDetailComponent,
+    CartItemsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule,
+    GalleriaModule,
   ],
   providers: [ provideHttpClient()],
   bootstrap: [AppComponent]

@@ -1,0 +1,63 @@
+
+<div class="container">
+    <section id="product-info">
+        <div class="item-image-parent">
+            <!-- <div class="item-list-vertical">
+                <div class="thumb-box">
+                    <img src="https://i.ibb.co/VJf6fXm/thumb1.jpg" alt="thumbnail" />
+                </div>
+                <div class="thumb-box">
+                    <img src="https://i.ibb.co/Jt5zc58/thumb2.jpg" alt="thumbnail" />
+                </div>
+                <div class="thumb-box">
+                    <img src="https://i.ibb.co/Yf9LMpy/thumb3.jpg" alt="thumbnail" />
+                </div>
+                <div class="thumb-box">
+                    <img src="https://i.ibb.co/60hPGy2/thumb4.jpg" alt="thumbnail" />
+                </div>
+    
+            </div> -->
+            <div class="item-image-main">
+                <img src="{{productDetails?.productImg}}" alt="default" />
+            </div>
+        </div>
+    
+        <div class="item-info-parent">
+            <!-- main info -->
+            <div class="main-info">
+                <h4>{{productDetails?.name}}</h4>
+                <div class="star-rating">
+                    <span>★★★★</span>★            
+                </div>
+                <p>Price: <span id="price">$ {{productDetails?.price}}</span></p>
+            </div>
+            <!-- Choose -->
+            <div class="select-items">
+                
+                <!-- <div class="change-color">
+                    <label><b>Colour:</b> Black</label><br>
+                    <div class="thumb-box">
+                        <img src="https://i.ibb.co/QjkJJk3/select1.jpg" alt="thumbnail" />
+                    </div>
+                    <div class="thumb-box">
+                        <img src="https://i.ibb.co/C297yD0/select2.jpg" alt="thumbnail" />
+                    </div>
+                </div> -->
+                
+    
+                <div class="description">
+                    <p>{{productDetails?.description}}</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-primary">Add to Cart</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-primary">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Description -->
+        </div>
+    </section>
+</div>
