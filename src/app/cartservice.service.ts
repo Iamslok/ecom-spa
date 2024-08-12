@@ -41,6 +41,8 @@ export class CartserviceService {
     // Save to local storage and update BehaviorSubject
     localStorage.setItem('cartItemsSet', JSON.stringify(currentItems));
     this.cartItems.next(currentItems);
+
+    alert(productName + " added to the cart!")
 }
 
 getCartItemsFromLocal(): CartItemsModel[] {
