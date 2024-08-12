@@ -15,5 +15,6 @@ export class ProductCardComponent {
 
   addtoCartItems(productModelItem:ProductModel){
     this.cartService.addToCart(productModelItem.id, 1, productModelItem.name, productModelItem.price,(productModelItem.productImg ?? ""))
+    return;
   }
 }

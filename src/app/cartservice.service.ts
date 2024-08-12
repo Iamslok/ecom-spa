@@ -1,40 +1,63 @@
 import { Injectable } from '@angular/core';
 import { CartItemsModel } from '../assets/Models/Products';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartserviceService {
 
-  cartitems: CartItemsModel[] = []
+  cartitemsModal: CartItemsModel[] = []
   Getcartitems: CartItemsModel[] = []
-  constructor() { }
+  private cartItems = new BehaviorSubject<any[]>(this.getCartItemsFromLocalStorage());
+  cartItems$ = this.cartItems.asObservable();
+  constructor() {
+    const itemsFromLocalStorage = this.getCartItemsFromLocalStorage();
+    this.cartItems = new BehaviorSubject<any[]>(itemsFromLocalStorage);
+    this.cartItems$ = this.cartItems.asObservable();
+}
 
-  addToCart(productId: number, quantity: number, productName: string, price: number, imgUrl: string) {
-    if (this.cartitems.filter(x => x.ProductId == productId).length == 0) {
-      var item = new CartItemsModel;
-      item.PrductName = productName;
-      item.cartId = productId;
-      item.ProductId = productId;
-      item.ProductPrice = price;
-      item.ProductImg = imgUrl;
-      item.Quantity = 1
+   addToCart(productId: number, quantity: number, productName: string, price: number, imgUrl: string) {
+    const currentItems = this.cartItems.value;
+    let existingItem = currentItems.find(x => x.ProductId === productId);
 
-      this.cartitems.push(item)
-      localStorage.setItem('cartItemsSet', JSON.stringify(this.cartitems))
+    if (!existingItem) {
+        // If item doesn't exist, add new one
+        let newItem = new CartItemsModel();
+        newItem.PrductName = productName;
+        newItem.cartId = productId;
+        newItem.ProductId = productId;
+        newItem.ProductPrice = price;
+        newItem.ProductImg = imgUrl;
+        newItem.Quantity = quantity;
+
+        currentItems.push(newItem);
     } else {
-      var existItem = this.cartitems.filter(x => x.ProductId == productId)[0];
-      existItem.Quantity = (existItem.Quantity ?? 0) + quantity
-
-      localStorage.removeItem('cartItemsSet')
-      localStorage.setItem('cartItemsSet', JSON.stringify(this.cartitems))
+        // If item exists, update quantity and price
+        existingItem.Quantity += quantity;
+        existingItem.ProductPrice = price * existingItem.Quantity;
     }
+
+    // Save to local storage and update BehaviorSubject
+    localStorage.setItem('cartItemsSet', JSON.stringify(currentItems));
+    this.cartItems.next(currentItems);
+}
+
+getCartItemsFromLocal(): CartItemsModel[] {
+  const res = localStorage.getItem('cartItemsSet');
+  if (res) {
+      this.Getcartitems = JSON.parse(res);
+  } else {
+      this.Getcartitems = [];
   }
+  return this.Getcartitems;
+}
 
-  getCartItemsFromLocal(): any {
-    var res = localStorage.getItem('cartItemsSet');
-    if (res) {
-       return this.Getcartitems = JSON.parse(res)
-    }
+  getCartItemCount(): number {
+    return this.cartItems.value.length;
+}
+
+  getCartItemsFromLocalStorage(): any[] {
+    return JSON.parse(localStorage.getItem('cartItemsSet') || '[]');
   }
 }

@@ -10,10 +10,17 @@ import { CartItemsModel } from '../../assets/Models/Products';
 export class CartItemsComponent implements OnInit {
 
   Getcartitems: CartItemsModel[] = []
+  total = 0
 
   constructor(private cartService:CartserviceService){}
 
   ngOnInit(): void {
    this.Getcartitems =  this.cartService.getCartItemsFromLocal()
+
+   if(this.Getcartitems.length > 0){
+    this.Getcartitems.forEach(item=>{
+      this.total += (item.ProductPrice ?? 0)
+    })
+   }
   }
 }

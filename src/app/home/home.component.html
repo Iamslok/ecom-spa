@@ -5,7 +5,7 @@
     <div class="row">
         @for(product of productDetails; track product){
             @if(product.rating == 5){
-                <div class="col-3 mb-2" [routerLink]="['/product-detail',product.id]">
+                <div class="col-3 mb-2">
                     <app-product-card [product]="product"></app-product-card>
                 </div>
             }

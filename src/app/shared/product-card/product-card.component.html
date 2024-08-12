@@ -1,10 +1,15 @@
-<div class="card">
-    <img src="{{product.productImg}}" class="card-img-top" alt="...">
+<div class="card h-100">
+    <a [routerLink]="['/product-detail', product.id]">
+      <img src="{{product.productImg}}" class="card-img-top img-fluid" alt="{{product.name}}">
+    </a>
     <div class="card-body">
-        <h5 class="card-title">{{product.name}}</h5>
-        <p class="card-text">{{product.price}}</p>
-        <p class="card-text">{{product.description}}</p>
-        <a class="btn btn-primary" (click)="addtoCartItems(product)">Add to Cart</a>
-        <a class="btn btn-primary ms-1">Buy Now</a>
+      <h5 class="card-title">{{product.name}}</h5>
+      <p class="card-text">{{product.price | currency}}</p>
+      <p class="card-text">{{product.description}}</p>
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-primary" (click)="addtoCartItems(product)">Add to Cart</button>
+        <a class="btn btn-outline-primary" [routerLink]="['/product-detail', product.id]">Buy Now</a>
+      </div>
     </div>
-</div>
+  </div>
+  

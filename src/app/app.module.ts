@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { GalleriaModule } from 'primeng/galleria';
 import { CartItemsComponent } from './cart-items/cart-items.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { CartItemsComponent } from './cart-items/cart-items.component';
     AppRoutingModule,
     SharedModule,
     GalleriaModule,
+    FormsModule
   ],
   providers: [ provideHttpClient()],
   bootstrap: [AppComponent]
