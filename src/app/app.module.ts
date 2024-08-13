@@ -12,6 +12,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { GalleriaModule } from 'primeng/galleria';
 import { CartItemsComponent } from './cart-items/cart-items.component';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     NavBarComponent,
     AllproductsComponent,
     ProductDetailComponent,
-    CartItemsComponent
+    CartItemsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

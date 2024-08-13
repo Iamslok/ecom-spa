@@ -2,30 +2,40 @@
     <div class="mt-3">
         <h4>Cart Items</h4>
     </div>
-    <div class="card mt-3">
-        @if(Getcartitems.length > 0 ){
-            <div class="card-body" > 
-                <div class="row">
-                    @for(item of Getcartitems; track item){
-                        <div class="col-2">
-                            <img src="{{item.ProductImg}}" alt="cart-img" style="width: 100px;">
-                        </div>
-                        <div class="col-3">
-                            <h6 class="mt-4">{{item.PrductName}}</h6>
-                        </div>
-                        <div class="col-3">
-                           <h6 class="mt-4">X {{item.Quantity}}</h6>
-                        </div>
-                        <div class="col-3">
-                            <h6 class="mt-4">${{item.ProductPrice}}</h6>
-                        </div>
-                        <hr>
-                    }
+
+    @if(Getcartitems.length > 0){
+        <div class="card mt-3">
+            @if(Getcartitems.length > 0 ){
+                <div class="card-body" > 
+                    <div class="row">
+                        @for(item of Getcartitems; track item){
+                            <div class="col-2">
+                                <img src="{{item.ProductImg}}" alt="cart-img" style="width: 100px;">
+                            </div>
+                            <div class="col-3">
+                                <h6 class="mt-4">{{item.PrductName}}</h6>
+                            </div>
+                            <div class="col-3">
+                               <h6 class="mt-4">X {{item.Quantity}}</h6>
+                            </div>
+                            <div class="col-3">
+                                <h6 class="mt-4">${{item.ProductPrice}}</h6>
+                            </div>
+                            <div class="col-1">
+                                <button class="btn btn-primary" (click)="removeItems(item.cartId ?? 0,item.PrductName ?? '')">Remove</button>
+                            </div>
+                            <hr>
+                        }
+                    </div>
+                    <div class="text-end">
+                        <h6>Total: ${{total}}</h6>
+                    </div>
                 </div>
-                <div class="text-end">
-                    <h6>Total: ${{total}}</h6>
-                </div>
-            </div>
-        }
-    </div>
+            }
+        </div>
+    } @else {
+        <h5 class="text-center">No Items in the Cart</h5>
+    }
+
+    
 </div>

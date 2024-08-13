@@ -62,4 +62,15 @@ getCartItemsFromLocal(): CartItemsModel[] {
   getCartItemsFromLocalStorage(): any[] {
     return JSON.parse(localStorage.getItem('cartItemsSet') || '[]');
   }
+
+  removeItemFromCart(cartId:number,productName:string,CartItemModel: CartItemsModel[]){
+    var index = CartItemModel.findIndex(x=>x.cartId == cartId);
+    if(index > -1){ //boolean 0- false, 1-true
+      CartItemModel.splice(index, 1)
+      localStorage.setItem('cartItemsSet', JSON.stringify(CartItemModel));
+      this.cartItems.next(CartItemModel)
+
+      alert(productName + " is removed from the cart!")
+    }
+  }
 }

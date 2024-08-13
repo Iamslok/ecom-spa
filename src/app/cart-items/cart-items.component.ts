@@ -15,12 +15,22 @@ export class CartItemsComponent implements OnInit {
   constructor(private cartService:CartserviceService){}
 
   ngOnInit(): void {
-   this.Getcartitems =  this.cartService.getCartItemsFromLocal()
+   this.getItemsFromStorage()
+  }
+
+  getItemsFromStorage(){
+    this.Getcartitems =  this.cartService.getCartItemsFromLocal()
 
    if(this.Getcartitems.length > 0){
+    this.total = 0
     this.Getcartitems.forEach(item=>{
       this.total += (item.ProductPrice ?? 0)
     })
    }
+  }
+  
+  removeItems(cartId:number,productName:string){
+    this.cartService.removeItemFromCart(cartId, productName,this.Getcartitems)
+    this.getItemsFromStorage()
   }
 }
