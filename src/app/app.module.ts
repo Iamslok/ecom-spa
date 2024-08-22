@@ -12,7 +12,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { GalleriaModule } from 'primeng/galleria';
 import { CartItemsComponent } from './cart-items/cart-items.component';
 import { FormsModule } from '@angular/forms';
-import { LoginComponent } from './login/login.component';
+import { SigninComponent } from './signin/signin.component';
+//import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoginComponent } from './login/login.component';
     AllproductsComponent,
     ProductDetailComponent,
     CartItemsComponent,
-    LoginComponent
+    SigninComponent,
+    //LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -15,3 +15,12 @@ export class CartItemsModel {
     Quantity?:number;
     ProductImg?:string;
 }
+
+export class GetAllProductsDto {
+    productId: number = 0;
+    productName: string = "";
+    productDescription: string = "";
+    productPrice: string = "";
+    ProductImg: string = "";
+    Rating: string = "";
+}

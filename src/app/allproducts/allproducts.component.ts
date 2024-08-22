@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductModel } from '../../assets/Models/Products';
+import { GetAllProductsDto, ProductModel } from '../../assets/Models/Products';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -8,13 +8,14 @@ import { ApiService } from '../api.service';
   styleUrl: './allproducts.component.css'
 })
 export class AllproductsComponent implements OnInit {
-  productDetails : ProductModel[]=[]
+  productDetails : GetAllProductsDto[]=[]
 
   constructor(private service:ApiService){}
 
   ngOnInit() {
-    this.service.getAllProducts().subscribe(res =>{
+    this.service.getProds().subscribe(res =>{
       this.productDetails = res
+      
     })
   }
 }

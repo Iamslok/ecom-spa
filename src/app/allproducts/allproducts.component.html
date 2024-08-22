@@ -4,7 +4,7 @@
     </div>
     <div class="row">
         @for(product of productDetails; track product){
-        <div class="col-3 mb-2" [routerLink]="['/product-detail',product.id]">
+        <div class="col-3 mb-2" [routerLink]="['/product-detail',product.productId]">
             <app-product-card [product]="product"></app-product-card>
         </div>
         }

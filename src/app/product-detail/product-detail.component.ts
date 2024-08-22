@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
-import { ProductModel } from '../../assets/Models/Products';
+import { GetAllProductsDto, ProductModel } from '../../assets/Models/Products';
 import { CartserviceService } from '../cartservice.service';
 
 @Component({
@@ -13,6 +13,7 @@ export class ProductDetailComponent implements OnInit {
 
   productId: number = 0
   productDetails: ProductModel | undefined
+  GetProductDeatils!: GetAllProductsDto;
 
   constructor(private router: ActivatedRoute, private apiService: ApiService, private cartService: CartserviceService) { }
 
@@ -23,8 +24,12 @@ export class ProductDetailComponent implements OnInit {
       this.apiService.getAllProducts().subscribe(res => {
         if (res.length > 0) {
           this.productDetails = res.find(x => x.id === this.productId)
-          console.log(this.productDetails)
         }
+      })
+
+      this.apiService.getProductById(this.productId).subscribe(res=>{
+        this.GetProductDeatils = res;
+        console.log(this.GetProductDeatils)
       })
     })
   }

@@ -18,18 +18,18 @@
     
             </div> -->
             <div class="item-image-main">
-                <img src="{{productDetails?.productImg}}" alt="default" />
+                <img src="{{GetProductDeatils?.ProductImg}}" alt="default" />
             </div>
         </div>
     
         <div class="item-info-parent">
             <!-- main info -->
             <div class="main-info">
-                <h4>{{productDetails?.name}}</h4>
+                <h4>{{GetProductDeatils?.productName}}</h4>
                 <div class="star-rating">
                     <span>★★★★</span>★            
                 </div>
-                <p>Price: <span id="price">$ {{productDetails?.price}}</span></p>
+                <p>Price: <span id="price">$ {{GetProductDeatils?.productPrice}}</span></p>
             </div>
             <!-- Choose -->
             <div class="select-items">
@@ -46,7 +46,7 @@
                 
     
                 <div class="description">
-                    <p>{{productDetails?.description}}</p>
+                    <p>{{GetProductDeatils?.productDescription}}</p>
                 </div>
                 <div class="row">
                     <div class="col-md-3">
